@@ -15,13 +15,30 @@ Company.destroy_all
 # 1b. check out the model file
 
 # 2. insert new rows in companies table
+puts "There are #{Company.all.count} companies"
+
+company = Company.new
+# puts company.inspect
+company["name"] = "Apple"
+company["city"] = "Cupertino"
+company["state"] = "CA"
+# puts company.inspect
+company.save
+# Insert 
+puts "There are #{Company.all.count} companies"
 
 # 3. query companies table to find all row with California company
+all_companies = Company.all
+puts all_companies.inspect
+
+cali_companies = Company.where({"state" => "CA"})
+puts cali_companies.inspect
 
 # 4. query companies table to find single row for Apple
-
+apple = Company.find_by({"name" => "Apple"})
 # 5. read a row's column value
-
+puts apple["state"]
 # 6. update a row's column value
+
 
 # 7. delete a row
